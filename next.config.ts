@@ -1,20 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
   experimental: {
-    agentFeedback: true,
+    optimizePackageImports: ["lucide-react", "framer-motion"],
   },
-  cacheComponents: true,
-  partialPrefetching: true,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
-  },
+  // Habilita compresión para mejor rendimiento
+  compress: true,
+  // Desactiva el header de Next.js por seguridad
+  poweredByHeader: false,
 };
 
 export default nextConfig;
